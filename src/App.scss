@@ -1,0 +1,173 @@
+$font-size-M: 1.5rem;
+$font-size-S: 1rem;
+
+$primary-color: #33004b 0% 0% no-repeat padding-box;
+$secondary-color: #fff;
+$blue: #8193b2;
+$backgroud-primary-color: #0c162d 0% 0% no-repeat padding-box;
+$backgroud-secondary-color: #19253c 0% 0% no-repeat padding-box;
+
+$shadow: 10px 10px 10px #00000029;
+
+@mixin flex($property) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $property;
+}
+@mixin text {
+  font-size: $font-size-M;
+  color: $secondary-color;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  background: $backgroud-primary-color;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.button {
+  background: $primary-color;
+  box-shadow: 0px 10px 10px #00000029;
+  border-radius: 10px;
+  border-color: transparent;
+  min-width: 180px;
+  min-height: 60px;
+  margin-bottom: 35px;
+  @include text;
+  &__disabled {
+    background: grey;
+  }
+  &__description {
+    background: transparent;
+    font-size: $font-size-S;
+  }
+}
+
+.spinner {
+  @include flex(column);
+  min-height: 100vh;
+}
+
+.login {
+  @include flex(column);
+  min-height: 90vh;
+  &__input {
+    background: $backgroud-secondary-color;
+    box-shadow: $shadow;
+    border-radius: 10px;
+    border-color: transparent;
+    height: 60px;
+    max-width: 828px;
+    text-align: center;
+    margin: 40px;
+    @include text;
+    &-error {
+      border-color: red;
+    }
+  }
+  &__text {
+    @include text;
+    margin: 10px;
+    font-size: $font-size-S;
+    &-error {
+      color: red;
+    }
+  }
+}
+
+.error {
+  @include flex(column);
+  width: 100vw;
+  height: 100vh;
+  &__box {
+    background: $backgroud-secondary-color;
+    box-shadow: $shadow;
+    border-radius: 10px;
+    max-width: 650px;
+    width: 80%;
+    height: 94px;
+    margin: 40px;
+    @include text;
+    padding: 15px;
+  }
+}
+
+.description {
+  @include flex(column);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: $backgroud-primary-color;
+  &__box {
+    background: $backgroud-secondary-color;
+    box-shadow: $shadow;
+    border-radius: 10px;
+    max-width: 650px;
+    width: 80%;
+    min-height: 94px;
+    margin: 40px;
+    @include text;
+    padding: 15px;
+  }
+}
+
+.information {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 90vw;
+  text-align: left;
+  margin-top: 15px;
+  &__account {
+    width: 90vw;
+  }
+  &__text {
+    @include text;
+    margin: 10px;
+    &-name {
+      @include text;
+      font-weight: bold;
+      color: $blue;
+    }
+  }
+}
+
+.repo {
+  margin: 20px;
+  width: 100%;
+  text-align: left;
+  background: $backgroud-secondary-color;
+  box-shadow: $shadow;
+  border-radius: 10px;
+  &__text {
+    @include text;
+    margin: 10px;
+    &-name {
+      @include text;
+      font-weight: bold;
+      color: $blue;
+    }
+    &-commit {
+      word-break: break-all;
+    }
+  }
+  &:nth-child(2n + 1) {
+    background: $primary-color;
+  }
+}
